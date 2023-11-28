@@ -1,0 +1,1 @@
+def comprehensions(i: int, j:int) ->tuple: return (list(filter(lambda x: x%10==3 or x%10==8 ,list(range(i, j+1)))), tuple(map(lambda x: round(x**(1/2), 2), list(range(i, j+1)))),dict(zip(list(range(i, j+1)), list(map(lambda x: chr(x), list(range(i, j+1)))))))

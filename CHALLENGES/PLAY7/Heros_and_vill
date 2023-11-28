@@ -1,0 +1,30 @@
+def fight(heroes:list, villain:dict)->str:
+    villain_w=0
+    heroes_w=0
+    winner_heroe=""
+    winner_heroe_score=""
+    ehros=[]
+    for i in heroes:
+        ehros.append(i["name"])
+    for i in heroes:
+        if i["name"] not in ehros: continue
+        if i["category"]==villain["category"]:
+            if i["health"]>=villain["health"]: 
+                heroes_w=1
+                i["score"]+=1
+                winner_heroe=i["name"]
+                winner_heroe_score=i["score"]
+                break
+            if i["health"]<villain["health"]:
+                ehros.remove(i["name"])
+                villain["health"]-=round(i["health"]/2,1)
+        if i["category"]!=villain["category"]:
+            ehros.remove(i["name"])
+        if not ehros: 
+            villain_w=1
+            break
+
+    if villain_w: return (f"{villain['name']} prevailed with {villain['health']}HP left")
+    if heroes_w: return (f"{winner_heroe} defeated the villain and now has a score of {winner_heroe_score}")
+
+print(fight([{'name': 'Genos', 'health': 5500, 'category': 'S', 'score': 0}, {'name': 'King', 'health': 7000, 'category': 'S', 'score': 0}, {'name': 'Blizzard of Hell', 'health': 1000, 'category': 'B', 'score': 0}, {'name': 'Saitama', 'health': 9001, 'category': 'C', 'score': 0}], {'name': 'Hero Killer', 'health': 4000, 'category': 'S'}))
