@@ -1,5 +1,0 @@
-windows 
-windows cpu 
-<PAGE>
-linux program 
-<PAGE>
